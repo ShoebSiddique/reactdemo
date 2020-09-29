@@ -4,6 +4,8 @@ import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 import Routing from './component/Routing';
+import 'bootstrap/dist/css/bootstrap.css';
+
 
 
 
