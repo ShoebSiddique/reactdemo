@@ -12,8 +12,25 @@ class Header extends Component
             title:'React State App',
             keyword:'User Input Here'
         }
-    }
 
+        this.handleClick = this.handleClick.bind(this);
+    }
+    
+
+
+    handleClick(event) {
+        console.log(event.target.value)
+        this.props.userText(event.target.value)
+        this.setState({keyword:event.target.value?event.target.value:'User Text Here'})
+        // this.setState(state => ({
+        //     keyword:event.target.value?event.target.value:'User Text Here'
+        //   }));
+        this.props.userText(event.target.value)
+      }
+
+
+
+    
     inputChange = (event) => {
         console.log(event.target.value)
         this.setState({keyword:event.target.value?event.target.value:'User Text Here'})
@@ -28,7 +45,7 @@ class Header extends Component
                 <header>
                     <div className="logo">{this.state.title}</div>
                     <center>                       
-                        <input onChange={this.inputChange} placeholder="My text"/>
+                        <input onChange={this.handleClick} placeholder="My text"/>
                         <div style={{color:'white'}}>{this.state.keyword}</div>
                     </center>
                 </header>
@@ -36,7 +53,6 @@ class Header extends Component
 
         )
     }
-
 
 }
 export default Header;
